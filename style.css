@@ -1,0 +1,293 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  --bg-dark: radial-gradient(circle at top, #0b1345, #050b2e);
+  --card-bg: linear-gradient(180deg, #0f1a5a, #0b1345);
+
+  --primary: #6366f1;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --pink: #ec4899;
+  --purple: #8b5cf6;
+
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+  min-height: 100vh;
+  background: var(--bg-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-main);
+}
+
+/* ================= MAIN CARD ================= */
+.main {
+  width: 420px;
+  background: var(--card-bg);
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.6s ease;
+}
+
+/* ================= HEADER ================= */
+.done {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.done_txt h2 {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.done_txt p {
+  font-size: 13px;
+  color: #c7d2fe;
+  margin-top: 4px;
+}
+
+/* ================= PROGRESS ================= */
+.progressBar {
+  margin-top: 10px;
+  width: 230px;
+  height: 8px;
+  background-color: #1e275f;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progressBar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #38bdf8, var(--primary));
+  transition: width 0.3s ease;
+}
+
+/* ================= DONE COUNT ================= */
+.done_count {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #818cf8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.5);
+}
+
+/* ================= SEARCH INPUT ================= */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background-color: #141c55;
+  border-radius: var(--radius-md);
+}
+
+.search i {
+  color: #a5b4fc;
+  font-size: 14px;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.search input::placeholder {
+  color: var(--text-muted);
+}
+
+.search input:focus {
+  outline: none;
+}
+
+/* ================= SEARCH FILTERS ================= */
+.searches {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.searches .sr {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* COMPLETED */
+.search_on_completed {
+  background: linear-gradient(135deg, var(--success), #16a34a);
+}
+.search_on_completed::after {
+  content: "✓";
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* IN PROGRESS */
+.search_on_inprogress {
+  background: linear-gradient(135deg, var(--pink), #db2777);
+}
+.search_on_inprogress::after {
+  content: "⌛";
+  font-size: 16px;
+}
+
+/* RECENT */
+.search_on_time {
+  background: linear-gradient(135deg, var(--purple), #7c3aed);
+}
+.search_on_time::after {
+  content: "⏰";
+  font-size: 16px;
+}
+
+/* ACTIVE FILTER */
+.sr.search-active {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9),
+              0 12px 24px rgba(0, 0, 0, 0.45);
+  transform: scale(1.15);
+}
+
+/* ================= ADD TASK ================= */
+.task {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.task input {
+  flex: 1;
+  padding: 13px 14px;
+  border-radius: var(--radius-md);
+  border: none;
+  background-color: #141c55;
+  color: var(--text-main);
+}
+
+.task input::placeholder {
+  color: var(--text-muted);
+}
+
+.task button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--primary), #818cf8);
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.5);
+}
+
+/* ================= TASK LIST ================= */
+#task_display {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.display_task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: linear-gradient(135deg, #121a4d, #141c55);
+  border-radius: var(--radius-md);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.display_task:hover {
+  transform: translateY(-2px);
+  background: #182064;
+}
+
+.task_text {
+  flex: 1;
+  font-size: 14px;
+}
+
+/* DONE TASK */
+.done-task {
+  border: 2px solid var(--success);
+}
+
+/* ================= ICON BUTTONS ================= */
+.edit_task,
+.delete_task {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit_task {
+  color: #facc15;
+}
+
+.delete_task {
+  color: #f87171;
+}
+
+.edit_task:hover,
+.delete_task:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: scale(1.1);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

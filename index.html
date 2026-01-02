@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="done">
+        <div class="done_txt">
+          <h2>To Do Done</h2>
+          <div class="progressBar"></div>
+        </div>
+        <div class="done_count"></div>
+      </div>
+
+      <!-- SEARCH BAR -->
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input class="search-txt" type="text" placeholder="Search tasks..." />
+      </div>
+
+      <!-- search on basic of complete not complete and sort by recent based on time add 3 div  -->
+      <div class="searches">
+        <div class="sr search_on_completed" value="Completed"></div>
+        <div class="sr search_on_inprogress" value="In Progress"></div>
+        <div class="sr search_on_time" value="time"></div>
+      </div>
+
+
+      <div class="add_task">
+        <div class="task">
+          <input class="task_description" placeholder="add task" />
+          <button class="add_new_task">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <section id="task_display">
+        <!-- <div class="display_task">
+          <input type="checkbox" name="" id="" />
+          <div class="task_text">task desciption</div>
+          <button class="edit_task">
+            <i class="fa-solid fa-pen"></i>
+          </button>
+
+          <button class="delete_task">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div> -->
+      </section>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
